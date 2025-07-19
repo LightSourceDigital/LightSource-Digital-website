@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Accessibility Statement | LightSource Digital</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Skip link for keyboard users -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Header -->
+  <header class="hero-header" role="banner">
+    <img src="images/left-side.png" alt="Left Side Graphic" class="header-image left">
+    <img src="images/profile-pic.png" alt="LightSource Digital logo" class="center-logo" aria-label="LightSource Digital logo">
+    <img src="images/right-side-final.png" alt="Right Side Graphic" class="header-image right">
+  </header>
+
+  <!-- Navigation -->
+  <nav class="main-nav" role="navigation">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+<li>
+  <button id="contrast-toggle" aria-label="Toggle High Contrast Mode">🌓</button>
+</li>
+    </ul>
+  </nav>
+
+  <!-- Main content -->
+  <main id="main-content" role="main" tabindex="0">
+    <section id="accessibility" role="region" aria-labelledby="accessibility-heading" tabindex="0">
+      <h1 class="sr-only">Accessibility Statement – LightSource Digital</h1>
+<h2 class="section-title center" id="accessibility-heading">Accessibility Statement</h2>
+      <p>
+        LightSource Digital is committed to making our website accessible to everyone, including people with disabilities. We strive to follow best practices outlined by the Web Content Accessibility Guidelines (WCAG) 2.1 Level AA.
+      </p>
+      <p>
+        If you encounter any accessibility barriers or have suggestions for improvement, please let us know. You can reach us at:
+      </p>
+      <ul>
+        <li>Email: <a href="mailto:lightsourcedigital.tech@gmail.com">lightsourcedigital.tech@gmail.com</a></li>
+        <li>Phone: (424) 425-5349</li>
+      </ul>
+      <p>
+        We are actively working to ensure all users have a positive experience on our site. Thank you for your patience and feedback.
+      </p>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer role="contentinfo">
+    <p class="footer-tagline">Serving people and organizations with impactful websites, media, and tech support — always rooted in integrity and purpose.</p>
+    <p>&copy; 2025 LightSource Digital | All Rights Reserved</p>
+  </footer>
+<script>
+  const toggle = document.getElementById('contrast-toggle');
+  toggle?.addEventListener('click', () => {
+    document.body.classList.toggle('high-contrast');
+  });
+</script>
+</body>
+</html>

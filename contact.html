@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | LightSource Digital</title>
+  <meta name="description" content="Contact LightSource Digital — providing website design, creative media, tech support, and device optimization for ministries and small businesses." />
+  <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<header class="hero-header">
+  <img src="images/left-side.png" alt="Left Side Graphic" class="header-image left">
+  <img src="images/profile-pic.png" alt="Center Logo" class="center-logo">
+  <img src="images/right-side-final.png" alt="Right Side Graphic" class="header-image right">
+</header>
+
+<nav class="main-nav">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+<button id="contrast-toggle" aria-label="Toggle High Contrast Mode">🌓</button>
+  </ul>
+</nav>
+
+<main id="main-content" role="main" tabindex="0">
+  <section id="contact" role="region" aria-labelledby="contact-heading" tabindex="0">
+    <h1 id="contact-heading" class="section-title">Contact</h1>
+
+    <div class="contact-top-row">
+      <div class="contact-info">
+        <p>Email: <a href="mailto:lightsourcedigital.tech@gmail.com">lightsourcedigital.tech@gmail.com</a></p>
+        <p>Phone: <a href="tel:4244255349">(424) 425–5349</a></p>
+        <p><strong>Hours:</strong> Monday–Friday, 9:00 AM – 5:00 PM EST<br>
+        <em>Typical response time: within 24 hours</em></p>
+      </div>
+
+      <div class="social-block">
+  <h3 class="mini-heading">Connect with us:</h3>
+  <div class="social-icons">
+    <a href="https://www.facebook.com/profile.php?id=61575609093185" target="_blank" aria-label="Facebook">
+      <img src="images/icon-facebook.png" alt="Facebook" class="social-icon" />
+    </a>
+    <a href="https://x.com/LightSource_Dig" target="_blank" aria-label="X (Twitter)">
+      <img src="images/icon-x.png" alt="X (Twitter)" class="social-icon" />
+    </a>
+    <a href="https://www.instagram.com/lightsource_digital/" target="_blank" aria-label="Instagram">
+      <img src="images/icon-instagram.png" alt="Instagram" class="social-icon" />
+    </a>
+    <a href="https://linktr.ee/LightSource_Digital" target="_blank" aria-label="Linktree">
+      <img src="images/icon-linktree.png" alt="Linktree" class="social-icon" />
+    </a>
+  </div>
+</div>
+
+
+
+        <div class="qr-box">
+          <p>Scan to connect with all our platforms:</p>
+          <div class="qr-wrapper">
+            <img src="images/LightSource_Digital.png" alt="LightSource Digital QR Code" width="150" height="150" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-message">
+      We’d love to hear from you! Whether you have a project in mind, need support, or just want to explore ideas — reach out.
+    </div>
+  </section>
+
+  <section role="region" aria-labelledby="form-heading" tabindex="0">
+    <h2 id="form-heading" class="sr-only">Contact Form</h2>
+    <div class="contact-form" id="contact-form">
+      <form action="https://formspree.io/f/xqaqlqqa" method="POST" aria-label="Contact Form">
+        <div class="input-group">
+          <label for="name">Name</label>
+          <i class="fas fa-user icon-name"></i>
+          <input type="text" id="name" name="name" required aria-required="true" />
+        </div>
+
+        <div class="input-group">
+          <label for="email">Email</label>
+          <i class="fas fa-envelope icon-email"></i>
+          <input type="email" id="email" name="email" required aria-required="true" />
+        </div>
+
+        <div class="input-group">
+          <label for="message">Message</label>
+          <i class="fas fa-comment icon-message"></i>
+          <textarea id="message" name="message" rows="5" required aria-required="true"></textarea>
+        </div>
+
+        <button type="submit">Send Message</button>
+        <p id="form-success" style="display:none; color: #d4af37; text-align: center; font-weight: bold; margin-top: 1rem;">
+          ✅ Thank you! Your message has been sent.
+        </p>
+      </form>
+    </div>
+  </section>
+</main>
+
+
+  <footer>
+  <p class="footer-tagline">
+    Serving people and organizations with impactful websites, media, and tech support — always rooted in integrity and purpose.
+  </p>
+  <p>&copy; 2025 LightSource Digital | All Rights Reserved</p>
+</footer>
+
+ <script>
+  const form = document.querySelector(".contact-form form");
+  const successMsg = document.getElementById("form-success");
+
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+    const response = await fetch(form.action, {
+      method: form.method,
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+      form.reset();
+      successMsg.style.display = "block";
+    } else {
+      alert("Oops! Something went wrong. Please try again.");
+    }
+  });
+</script>
+<script>
+  const toggle = document.getElementById('contrast-toggle');
+  toggle.addEventListener('click', () => {
+    document.body.classList.toggle('high-contrast');
+  });
+</script>
+</body>
+</html>
