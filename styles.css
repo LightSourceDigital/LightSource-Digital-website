@@ -29,6 +29,18 @@ a:hover {
   }
 }
 
+/* ---- Page background (do this once) ---- */
+:root { --brand-bg: #0b1e34; }
+html, body { 
+  background: var(--brand-bg);
+  min-height: 100%;
+}
+
+/* Let content sit on top of the page color */
+main, section, footer { background: transparent; }
+/* (leave header/nav out since you style them below) */
+
+
 /* Header */
 header {
   background-color: #0b1e34;
@@ -776,6 +788,46 @@ section:focus {
   outline-offset: 3px;
 }
 
+/* === High-contrast: include header + hero + form fields === */
+body.high-contrast header,
+body.high-contrast .hero-header {
+  background-color: #000 !important;
+  border-bottom-color: #00ffff !important; /* optional accent */
+}
+
+body.high-contrast .main-nav {
+  background-color: #000 !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
+/* Contact card + message box */
+body.high-contrast .contact-message,
+body.high-contrast .contact-form,
+body.high-contrast .qr-box {
+  background-color: #000 !important;
+  border-color: #00ffff !important;
+}
+
+/* Inputs/textarea inside the form */
+body.high-contrast .contact-form input,
+body.high-contrast .contact-form textarea {
+  background-color: #111 !important;  /* visible against pure black */
+  color: #fff !important;
+  border-color: #00ffff !important;
+}
+
+body.high-contrast .contact-form input::placeholder,
+body.high-contrast .contact-form textarea::placeholder {
+  color: #ccc !important;
+}
+
+/* Little gold icons inside inputs—tint them for contrast mode */
+body.high-contrast .input-group i {
+  color: #00ffff !important;
+}
+
 footer {
   text-align: center;
   padding: 1rem 0;
@@ -796,13 +848,6 @@ footer {
     max-width: 100%;
   }
 
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation: none !important;
-    transition: none !important;
-  }
-}
-
   .contact-links {
     flex-direction: column;
     align-items: center;
@@ -816,14 +861,144 @@ footer {
     font-size: 0.95rem;
   }
 
- .qr-box {
-  margin-left: 0 !important;
-  margin-top: 1rem;
-  text-align: center;
+  .qr-box {
+    margin-left: 0 !important;
+    margin-top: 1rem;
+    text-align: center;
   }
-  .contact-info, .contact-links {
+
+  .contact-info,
+  .contact-links {
     width: 100%;
     text-align: center;
   }
 }
+
+/* keep this OUTSIDE other media queries */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* === Mobile header fix (phones only) === */
+@media (max-width: 600px) {
+  /* Keep the header compact */
+  .hero-header {
+    height: auto;
+    padding: 12px 0;
+    overflow: hidden;     /* prevent any stray overlap */
+  }
+
+  /* Make the main logo scale to the screen */
+  .center-logo {
+    height: auto;
+    width: 68vw;          /* ~2/3 of the viewport width */
+    max-width: 360px;
+    margin: 0 auto;
+  }
+
+  /* Hide the side illustrations on phones (cleanest) */
+  .header-image.left,
+  .header-image.right,
+  .background-image {
+    display: none !important;
+  }
+
+  /* Tighter nav for small screens */
+  .main-nav ul {
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .main-nav a {
+    font-size: 0.95rem;
+    padding: 0.25rem 0.35rem;
+  }
+}
+
+/* Mobile tweaks: keep testimonials centered and kill sideways scroll */
+@media (max-width: 600px) {
+  html, body {
+    overflow-x: hidden;            /* stop horizontal pan */
+  }
+
+  /* Give the section a little breathing room on the sides */
+  .testimonials-grid {
+    padding-left: 16px;
+    padding-right: 16px;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+
+  /* Make each card fill the available width and stay centered */
+  .testimonial-card {
+    width: 100%;
+    max-width: none;               /* ignore the desktop width cap */
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;        /* include padding/border in width */
+  }
+}
+
+/* Mobile: make slideshow images fit, no cropping */
+@media (max-width: 600px) {
+  .slideshow-container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 16px;            /* keeps the glow/border off the edges */
+    box-sizing: border-box;
+  }
+
+  /* Force images to scale to the container */
+  .slideshow-container img,
+  .slide img {
+    width: 100% !important;     /* override the desktop width:auto */
+    height: auto !important;
+    max-height: 70vh;           /* stays on-screen; tweak if you like */
+    object-fit: contain;
+    display: block;
+  }
+
+  /* Optional: slightly smaller arrows on phones */
+  .prev, .next {
+    font-size: 22px;
+    padding: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+/* Mobile footer padding */
+@media (max-width: 600px) {
+  footer {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    text-align: center;
+  }
+
+  footer p,
+  footer a {
+    display: inline-block;
+    margin-left: 0.25rem;
+    margin-right: 0.25rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .services-title, 
+  h2.services-title { 
+    text-align: center !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .services-title { text-align: center !important; }
+}
+
+
+
+
+
+
 
