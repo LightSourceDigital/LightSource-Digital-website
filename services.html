@@ -5,16 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Services | LightSource Digital</title>
   <link rel="canonical" href="https://lightsourcedigital.tech/services.html">
+
+  <!-- Preconnect optimizations for Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 <header class="hero-header">
-  <img src="images/left-side.png" alt="Left Side Graphic" class="header-image left">
+  <!-- Left side image: lazy load -->
+  <img src="images/left-side.png" alt="Left Side Graphic" 
+       class="header-image left"
+       width="200" height="400"
+       loading="lazy" decoding="async" />
+
+  <!-- Center logo: eager load (no lazy) -->
   <a href="/" aria-label="Go to homepage" class="logo-link">
-    <img src="images/profile-pic.png" alt="LightSource Digital logo" class="center-logo">
+    <img src="images/profile-pic.png" alt="LightSource Digital logo" 
+         class="center-logo"
+         width="250" height="250"
+         decoding="async" />
   </a>
-  <img src="images/right-side-final.png" alt="Right Side Graphic" class="header-image right">
+
+  <!-- Right side image: lazy load -->
+  <img src="images/right-side-final.png" alt="Right Side Graphic" 
+       class="header-image right"
+       width="200" height="400"
+       loading="lazy" decoding="async" />
 </header>
 
 <nav class="main-nav" role="navigation">
@@ -38,77 +57,89 @@
 <!-- Digital Presence -->
 <div class="service-block">
   <div class="service-header">
-    <img src="images/icon-digital-presence.png" alt="Digital Presence Icon" class="service-icon" />
+    <img src="images/icon-digital-presence.png" alt="Digital Presence Icon"
+         class="service-icon" width="64" height="64"
+         loading="lazy" decoding="async" />
     <h3><a href="contact.html#contact-form">Digital Presence</a></h3>
   </div>
-  <p><strong>Website Builder and Designer:</strong> Custom, responsive websites tailored to your mission — from single-page landing sites to multi-page builds with integrated contact forms, SEO optimization, and mobile-first design. Perfect for ministries, small businesses, or personal brands.</p>
+  <p><strong>Website Builder and Designer:</strong> Custom, responsive websites tailored to your mission — from single-page landing sites to multi-page builds with integrated contact forms, SEO optimization, and mobile-first design.</p>
 </div>
 
 <!-- Website Cybersecurity -->
 <div class="service-block">
   <div class="service-header">
-    <img src="images/icon-cyber-security.png" alt="Cybersecurity Icon" class="service-icon" />
+    <img src="images/icon-cyber-security.png" alt="Cybersecurity Icon"
+         class="service-icon" width="64" height="64"
+         loading="lazy" decoding="async" />
     <h3><a href="contact.html#contact-form">Website Cybersecurity</a></h3>
   </div>
-  <p><strong>Secure & Hardened Websites:</strong> Fortify your online presence with advanced security features. We offer tailored solutions including firewall setup, brute force protection, malware scanning, SSL validation, plugin audits, and update monitoring — all configured with clarity and purpose to protect your website.</p>
+  <p><strong>Secure & Hardened Websites:</strong> Fortify your online presence with advanced security features.</p>
 </div>
 
 <!-- Website Security Audit -->
 <div class="service-block">
   <div class="service-header">
-    <img src="images/icon-security-audit.png" alt="Security Audit Icon" class="service-icon" />
+    <img src="images/icon-security-audit.png" alt="Security Audit Icon"
+         class="service-icon" width="64" height="64"
+         loading="lazy" decoding="async" />
     <h3><a href="contact.html#contact-form">Website Security Audit</a></h3>
   </div>
-  <p><strong>One-Time Site Review:</strong> Not sure where your site stands? Let us perform a one-time security audit based on a robust checklist. You’ll receive a branded PDF report highlighting risks, areas for improvement, and recommended actions. We also offer an optional “Fix-It Package” to handle the remediation for you.</p>
+  <p><strong>One-Time Site Review:</strong> Get a branded PDF report highlighting risks, areas for improvement, and recommended actions.</p>
 </div>
 
 <!-- Creative Media -->
 <div class="service-block">
   <div class="service-header">
-    <img src="images/icon-creative-media.png" alt="Creative Media Icon" class="service-icon" />
+    <img src="images/icon-creative-media.png" alt="Creative Media Icon"
+         class="service-icon" width="64" height="64"
+         loading="lazy" decoding="async" />
     <h3><a href="contact.html#contact-form">Creative Media</a></h3>
   </div>
-  <p><strong>Print & Digital Media Design:</strong> Eye-catching flyers, business cards, banners, brochures, and branded materials — both online and in print. We help ensure your visuals stay consistent across platforms, from physical handouts to digital ads.</p>
+  <p><strong>Print & Digital Media Design:</strong> Flyers, business cards, banners, brochures, and branded materials — both online and in print.</p>
 </div>
 
 <!-- Social Media Strategy & Management -->
 <div class="service-block">
   <div class="service-header">
-    <img src="images/icon-socmedmanage.png" alt="Social Media Strategy & Management Icon" class="service-icon" />
+    <img src="images/icon-socmedmanage.png" alt="Social Media Strategy & Management Icon"
+         class="service-icon" width="64" height="64"
+         loading="lazy" decoding="async" />
     <h3><a href="contact.html#contact-form">Social Media Strategy & Management</a></h3>
   </div>
-  <p>
-    From post design to platform strategy, we'll help you build and optimize a social media presence that engages your audience, strengthens your reach, and reflects your mission — consistently and professionally.
-  </p>
+  <p>Build and optimize a social media presence that engages your audience and strengthens your reach.</p>
 </div>
 
 <!-- Reputation Management -->
 <div class="service-block">
   <div class="service-header">
-    <img src="images/icon-onrepmanage.png" alt="Reputation Management Icon" class="service-icon" />
+    <img src="images/icon-onrepmanage.png" alt="Reputation Management Icon"
+         class="service-icon" width="64" height="64"
+         loading="lazy" decoding="async" />
     <h3><a href="contact.html#contact-form">Reputation Management</a></h3>
   </div>
-  <p>
-    Safeguard your brand online with expert help managing reviews, local listings, and search visibility — because first impressions start with what people find online.
-  </p>
+  <p>Safeguard your brand online with expert help managing reviews, local listings, and search visibility.</p>
 </div>
 
 <!-- Support & Help -->
 <div class="service-block">
   <div class="service-header">
-    <img src="images/icon-support-help.png" alt="Support & Help Icon" class="service-icon" />
+    <img src="images/icon-support-help.png" alt="Support & Help Icon"
+         class="service-icon" width="64" height="64"
+         loading="lazy" decoding="async" />
     <h3><a href="contact.html#contact-form">Support & Help</a></h3>
   </div>
-  <p><strong>Tech Support & Troubleshooting:</strong> Reliable help for resolving everyday tech challenges — from email setup and printer issues to software crashes and device configuration — delivered with patience and clarity.</p>
+  <p><strong>Tech Support & Troubleshooting:</strong> Reliable help for resolving everyday tech challenges.</p>
 </div>
 
 <!-- Device Care -->
 <div class="service-block">
   <div class="service-header">
-    <img src="images/icon-device-care.png" alt="Device Care Icon" class="service-icon" />
+    <img src="images/icon-device-care.png" alt="Device Care Icon"
+         class="service-icon" width="64" height="64"
+         loading="lazy" decoding="async" />
     <h3><a href="contact.html#contact-form">Device Care</a></h3>
   </div>
-  <p><strong>Software & Hardware Support:</strong> Improve speed, clear digital clutter, and keep systems secure and up to date. We also offer screen repairs and external fixes to restore your device’s physical condition.</p>
+  <p><strong>Software & Hardware Support:</strong> Improve speed, clear digital clutter, and keep systems secure and up to date.</p>
 </div>
 </section>
 
