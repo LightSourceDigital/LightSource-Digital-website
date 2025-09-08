@@ -828,6 +828,42 @@ body.high-contrast .input-group i {
   color: #00ffff !important;
 }
 
+.faq .faq-item { margin-bottom: 0.75rem; border: 1px solid #eee; border-radius: 8px; padding: 0.5rem 0.75rem; }
+.faq summary { cursor: pointer; font-weight: 600; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary:focus { outline: 2px dashed #d4af37; outline-offset: 4px; }
+.faq .faq-item[open] { border-color: #d4af37; }
+
+/* styles.css */
+.faq summary { cursor: pointer; }
+.faq summary:focus { outline: 2px solid #d4af37; outline-offset: 2px; }
+.faq details[open] summary { font-weight: 600; }
+
+/* Make summary feel clickable */
+.faq summary {
+  cursor: pointer;
+  list-style: none; /* Removes default disclosure triangle if you style your own */
+}
+
+/* Visible focus ring for keyboard users */
+.faq summary:focus {
+  outline: 2px solid #d4af37;
+  outline-offset: 2px;
+}
+
+/* Optional styling when FAQ is open */
+.faq details[open] summary {
+  font-weight: 600;
+  color: #d4af37;
+}
+
+/* Prevent sticky header overlap on anchor jumps */
+#services-faq .faq-item { scroll-margin-top: 80px; }
+
+:target {
+  scroll-margin-top: 80px; /* adjust to your sticky header height */
+}
+
 footer {
   text-align: center;
   padding: 1rem 0;

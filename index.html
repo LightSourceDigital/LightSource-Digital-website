@@ -11,6 +11,8 @@
 
   <!-- Styles -->
   <link rel="stylesheet" href="styles.css" />
+  <link rel="preload" as="image" href="images/AGMC-VBS.png"
+      imagesizes="(max-width: 768px) 90vw, 600px">
 
   <!-- Preconnect optimizations for Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -107,59 +109,80 @@
   <h2 class="section-title slideshow-title" id="slideshow-heading">What We've Built Recently</h2>
   <div class="slideshow-container" aria-live="polite">
 
+    <!-- First visible slide: eager + high priority for better LCP -->
     <div class="slide fade">
       <a href="images/AGMC-VBS.png" target="_blank" rel="noopener noreferrer">
-        <img src="images/AGMC-VBS.png" alt="VBS Flyer"
-             width="600" height="800" loading="lazy" decoding="async" />
+        <picture>
+  <source type="image/avif" srcset="images/AGMC-VBS.avif">
+  <source type="image/webp" srcset="images/AGMC-VBS.webp">
+  <img src="images/AGMC-VBS.png" alt="VBS Flyer"
+       width="600" height="800"
+       loading="eager" decoding="async" fetchpriority="high"
+       sizes="(max-width: 768px) 90vw, 600px" />
+</picture>
       </a>
     </div>
 
     <div class="slide fade">
       <a href="images/bus-cards.png" target="_blank" rel="noopener noreferrer">
         <img src="images/bus-cards.png" alt="Church Business Card"
-             width="600" height="400" loading="lazy" decoding="async" />
+             width="600" height="400"
+             loading="lazy" decoding="async"
+             sizes="(max-width: 768px) 90vw, 600px" />
       </a>
     </div>
 
     <div class="slide fade">
       <a href="images/camo1 copy.png" target="_blank" rel="noopener noreferrer">
         <img src="images/camo1 copy.png" alt="Camo Logo"
-             width="500" height="500" loading="lazy" decoding="async" />
+             width="500" height="500"
+             loading="lazy" decoding="async"
+             sizes="(max-width: 768px) 90vw, 500px" />
       </a>
     </div>
 
     <div class="slide fade">
       <a href="images/DGMC clay shoot.png" target="_blank" rel="noopener noreferrer">
         <img src="images/DGMC clay shoot.png" alt="Clay Shoot Flyer"
-             width="600" height="800" loading="lazy" decoding="async" />
+             width="600" height="800"
+             loading="lazy" decoding="async"
+             sizes="(max-width: 768px) 90vw, 600px" />
       </a>
     </div>
 
     <div class="slide fade">
       <a href="images/Easter.png" target="_blank" rel="noopener noreferrer">
         <img src="images/Easter.png" alt="Easter Flyer"
-             width="600" height="800" loading="lazy" decoding="async" />
+             width="600" height="800"
+             loading="lazy" decoding="async"
+             sizes="(max-width: 768px) 90vw, 600px" />
       </a>
     </div>
 
     <div class="slide fade">
       <a href="images/HTS-logo.png" target="_blank" rel="noopener noreferrer">
         <img src="images/HTS-logo.png" alt="Holderbaum Tree Logo"
-             width="500" height="500" loading="lazy" decoding="async" />
+             width="500" height="500"
+             loading="lazy" decoding="async"
+             sizes="(max-width: 768px) 90vw, 500px" />
       </a>
     </div>
 
     <div class="slide fade">
       <a href="images/storkstays.png" target="_blank" rel="noopener noreferrer">
         <img src="images/storkstays.png" alt="Stork Stays Branding"
-             width="600" height="400" loading="lazy" decoding="async" />
+             width="600" height="400"
+             loading="lazy" decoding="async"
+             sizes="(max-width: 768px) 90vw, 600px" />
       </a>
     </div>
 
     <div class="slide fade">
       <a href="images/sushi-night.png" target="_blank" rel="noopener noreferrer">
         <img src="images/sushi-night.png" alt="Sushi Night Invite"
-             width="600" height="800" loading="lazy" decoding="async" />
+             width="600" height="800"
+             loading="lazy" decoding="async"
+             sizes="(max-width: 768px) 90vw, 600px" />
       </a>
     </div>
 
@@ -168,7 +191,9 @@
       <a href="https://www.kelleyelectricalse.com/" target="_blank" rel="noopener noreferrer">
         <img src="images/trust-Lord.png" alt="Trust in the Lord Branding"
              style="max-height: 450px; width: auto; margin: 0 auto;"
-             width="600" height="450" loading="lazy" decoding="async" />
+             width="600" height="450"
+             loading="lazy" decoding="async"
+             sizes="(max-width: 768px) 90vw, 600px" />
       </a>
     </div>
 
@@ -177,7 +202,9 @@
       <a href="https://storkstays.com/" target="_blank" rel="noopener noreferrer">
         <img src="images/stork-stays.png" alt="Stork Stays Website"
              style="max-height: 450px; width: auto; margin: 0 auto;"
-             width="600" height="450" loading="lazy" decoding="async" />
+             width="600" height="450"
+             loading="lazy" decoding="async"
+             sizes="(max-width: 768px) 90vw, 600px" />
       </a>
     </div>
 
