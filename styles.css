@@ -864,6 +864,31 @@ body.high-contrast .input-group i {
   scroll-margin-top: 80px; /* adjust to your sticky header height */
 }
 
+/* Global button style (applies on all screen sizes) */
+.button{
+  display:inline-block;
+  padding:10px 20px;
+  background:#d4af37;
+  color:#0b0b0b;
+  text-decoration:none;
+  border-radius:6px;
+  font-weight:700;
+  line-height:1;
+}
+.button:hover{ background:#bb932c; }
+
+/* small spacing between the two buttons */
+.button + .button{ margin-left:.5rem; }
+
+.center{
+  text-align:center;
+  max-width:720px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+
+
 footer {
   text-align: center;
   padding: 1rem 0;
@@ -908,6 +933,7 @@ footer {
     width: 100%;
     text-align: center;
   }
+
 }
 
 /* keep this OUTSIDE other media queries */
