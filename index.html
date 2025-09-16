@@ -10,9 +10,11 @@
   <link rel="canonical" href="https://lightsourcedigital.tech/" />
 
   <!-- Styles -->
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="preload" as="image" href="images/AGMC-VBS.png"
-      imagesizes="(max-width: 768px) 90vw, 600px">
+<link rel="stylesheet" href="styles.css" />
+
+<!-- Preload PNG first slide for faster LCP -->
+<link rel="preload" as="image" href="images/AGMC-VBS.png" type="image/png" fetchpriority="high">
+
 
   <!-- Preconnect optimizations for Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -107,19 +109,21 @@
 
 <section class="slideshow-section" role="region" aria-labelledby="slideshow-heading" tabindex="0">
   <h2 class="section-title slideshow-title" id="slideshow-heading">What We've Built Recently</h2>
-  <div class="slideshow-container" aria-live="polite">
 
-    <!-- First visible slide: eager + high priority for better LCP -->
+  <div class="slideshow-container" aria-live="polite">
+    <!-- First visible slide (eager/high priority) -->
     <div class="slide fade">
       <a href="images/AGMC-VBS.png" target="_blank" rel="noopener noreferrer">
-        <picture>
-  <source type="image/avif" srcset="images/AGMC-VBS.avif">
-  <source type="image/webp" srcset="images/AGMC-VBS.webp">
-  <img src="images/AGMC-VBS.png" alt="VBS Flyer"
-       width="600" height="800"
-       loading="eager" decoding="async" fetchpriority="high"
-       sizes="(max-width: 768px) 90vw, 600px" />
-</picture>
+        <img
+          src="images/AGMC-VBS.png"
+          alt="VBS Flyer"
+          width="600" height="800"
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
+          sizes="(max-width: 768px) 90vw, 600px"
+          style="display:block; max-width:100%; height:auto; margin:0 auto;"
+        />
       </a>
     </div>
 
@@ -133,8 +137,8 @@
     </div>
 
     <div class="slide fade">
-      <a href="images/camo1 copy.png" target="_blank" rel="noopener noreferrer">
-        <img src="images/camo1 copy.png" alt="Camo Logo"
+      <a href="images/camo1-copy.png" target="_blank" rel="noopener noreferrer">
+        <img src="images/camo1-copy.png" alt="Camo Logo"
              width="500" height="500"
              loading="lazy" decoding="async"
              sizes="(max-width: 768px) 90vw, 500px" />
@@ -142,8 +146,8 @@
     </div>
 
     <div class="slide fade">
-      <a href="images/DGMC clay shoot.png" target="_blank" rel="noopener noreferrer">
-        <img src="images/DGMC clay shoot.png" alt="Clay Shoot Flyer"
+      <a href="images/DGMC-clay-shoot.png" target="_blank" rel="noopener noreferrer">
+        <img src="images/DGMC-clay-shoot.png" alt="Clay Shoot Flyer"
              width="600" height="800"
              loading="lazy" decoding="async"
              sizes="(max-width: 768px) 90vw, 600px" />
@@ -251,6 +255,17 @@
     observer.observe(card);
   });
 </script>
+<!-- Preload slideshow images -->
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.slideshow-container img').forEach(imgEl => {
+      const preload = new Image();
+      preload.src = imgEl.currentSrc || imgEl.src;
+    });
+  });
+</script>
+
+<!-- Your slideshow logic -->
 <script>
   let slideIndex = 1;
   showSlides(slideIndex);
@@ -260,20 +275,24 @@
   }
 
   function showSlides(n) {
-    let i;
     const slides = document.getElementsByClassName("slide");
 
     if (n > slides.length) { slideIndex = 1 }
     if (n < 1) { slideIndex = slides.length }
 
-    for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-    }
-
+    // Show the target slide first
     slides[slideIndex - 1].style.display = "block";
-  }
 
+    // Hide all the others
+    for (let i = 0; i < slides.length; i++) {
+      if (i !== slideIndex - 1) {
+        slides[i].style.display = "none";
+      }
+    }
+  }
 </script>
+
+<!-- Contrast toggle -->
 <script>
   const toggle = document.getElementById('contrast-toggle');
   toggle.addEventListener('click', () => {
@@ -282,3 +301,4 @@
 </script>
 </body>
 </html>
+
