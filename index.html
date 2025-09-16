@@ -12,6 +12,12 @@
   <!-- Styles -->
 <link rel="stylesheet" href="styles.css" />
 
+<!-- No-JS fallback for slideshow -->
+<style>
+  .slideshow-container .slide { display: none; }
+  .slideshow-container .slide:first-child { display: block; }
+</style>
+
 <!-- Preload PNG first slide for faster LCP -->
 <link rel="preload" as="image" href="images/AGMC-VBS.png" type="image/png" fetchpriority="high">
 
@@ -292,6 +298,23 @@
   }
 </script>
 
+<!-- Slideshow keyboard accessibility -->
+<script>
+  document.addEventListener('keydown', (e) => {
+    // ignore if user is typing in an input, textarea, or contenteditable
+    const active = document.activeElement;
+    const isTyping =
+      active.tagName === 'INPUT' ||
+      active.tagName === 'TEXTAREA' ||
+      active.isContentEditable;
+
+    if (isTyping) return;
+
+    if (e.key === 'ArrowLeft') plusSlides(-1);
+    if (e.key === 'ArrowRight') plusSlides(1);
+  });
+</script>
+
 <!-- Contrast toggle -->
 <script>
   const toggle = document.getElementById('contrast-toggle');
@@ -301,4 +324,5 @@
 </script>
 </body>
 </html>
+
 
