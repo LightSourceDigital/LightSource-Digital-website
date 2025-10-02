@@ -261,15 +261,6 @@
     observer.observe(card);
   });
 </script>
-<!-- Preload slideshow images -->
-<script>
-  window.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.slideshow-container img').forEach(imgEl => {
-      const preload = new Image();
-      preload.src = imgEl.currentSrc || imgEl.src;
-    });
-  });
-</script>
 
 <!-- Your slideshow logic -->
 <script>
