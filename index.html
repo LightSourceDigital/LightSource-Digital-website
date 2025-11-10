@@ -9,9 +9,6 @@
   <meta name="description" content="LightSource Digital equips churches, businesses, and individuals with Christ-centered website design, cybersecurity, device care, and creative media." />
   <link rel="canonical" href="https://lightsourcedigital.tech/" />
 
-  <!-- Styles -->
-<link rel="stylesheet" href="styles.css" />
-
 <!-- No-JS fallback for slideshow -->
 <style>
   .slideshow-container .slide { display: none; }
@@ -19,13 +16,16 @@
 </style>
 
 <!-- Preload PNG first slide for faster LCP -->
-<link rel="preload" as="image" href="images/AGMC-VBS.webp" type="image/png" fetchpriority="high">
+<link rel="preload" as="image" href="images/AGMC-VBS.webp" type="image/webp" fetchpriority="high">
 
 
   <!-- Preconnect optimizations for Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+  <link rel="preload" href="styles.css" as="style">
+  <link rel="stylesheet" href="styles.css">
+
 
   <!-- Bing Webmaster Tools verification -->
   <meta name="msvalidate.01" content="12910ACBD8D282B11B581128B26577B6" />
@@ -48,16 +48,22 @@
 
 <body>
 <header class="hero-header" role="banner">
-  <img src="images/left-side.png" alt="" role="presentation" class="header-image left"
-       width="200" height="400" decoding="async" />
+  <picture>
+  <source media="(max-width:600px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACw=">
+  <img src="images/left-side.png" class="header-image left"
+       alt="" role="presentation" width="280" height="300" decoding="async">
+</picture>
+
+<picture>
+  <source media="(max-width:600px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACw=">
+  <img src="images/right-side-final.png" class="header-image right"
+       alt="" role="presentation" width="280" height="300" decoding="async">
+</picture>
 
   <a href="/" aria-label="Go to homepage" class="logo-link">
     <img src="images/profile-pic.webp" alt="LightSource Digital logo" class="center-logo"
          width="250" height="250" decoding="async" />
   </a>
-
-  <img src="images/right-side-final.png" alt="" role="presentation" class="header-image right"
-       width="200" height="400" decoding="async" />
 </header>
 
 <nav class="main-nav" role="navigation">

@@ -887,6 +887,8 @@ body.high-contrast .input-group i {
   padding: 1rem;
 }
 
+.slideshow-container { min-height: 500px; }
+@media (max-width:600px){ .slideshow-container { min-height: 65vh; } }
 
 
 footer {
