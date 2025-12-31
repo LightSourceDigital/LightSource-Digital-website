@@ -627,7 +627,7 @@ html {
 }
 
 .slideshow-container {
-  position: auto;
+  position: relative;
   max-width: 800px;
   margin: 0 auto;
   overflow: hidden;
