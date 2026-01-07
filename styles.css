@@ -937,6 +937,32 @@ footer {
 
 }
 
+.mark {
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  overflow: hidden; /* <-- KEY: prevents big logo overflow */
+  border: 1px solid rgba(255,255,255,.18);
+  background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
+  box-shadow:
+    0 10px 30px rgba(0,0,0,.35),
+    0 0 18px rgba(214,177,94,.35);
+}
+
+.logo-img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 0 8px rgba(214,177,94,.45));
+}
+
+
+
+
+
 /* keep this OUTSIDE other media queries */
 @media (prefers-reduced-motion: reduce) {
   * {
