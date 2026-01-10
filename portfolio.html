@@ -208,6 +208,12 @@
   object-position: top;
 }
 
+/* FCC projects: wider, shorter preview */
+.card[data-category="fcc"] .thumb{
+  height: 200px;          /* try 160–200 if needed */
+  object-fit: cover;
+  object-position: center;
+}
 
 
     .meta{
@@ -330,6 +336,7 @@
       overflow:hidden;clip:rect(0,0,0,0);
       white-space:nowrap;border:0;
     }
+
   </style>
 </head>
 
@@ -742,48 +749,41 @@
           <!-- TECH PROJECT TEMPLATE (no images required, but you can add them) -->
           <article class="card span-6 item"
   data-category="fcc"
-  data-title="Python Budget App"
-  data-keywords="python budget app freecodecamp oop data structures cli">
-  
+  data-title="Product Landing Page (HaloDesk)"
+  data-keywords="freecodecamp html css javascript product landing page">
+
   <img
     class="thumb"
-    src="images/budget-app-preview.png"
-    alt="Screenshot of Python Budget App terminal output"
+    src="images/preview.png"
+    alt="HaloDesk product landing page preview"
     loading="lazy"
-  />
+  >
 
   <div class="content">
-    <div class="kicker">Technical Project</div>
-    <h3>Python: Budget App</h3>
+    <div class="kicker">FCC Project</div>
+    <h3>Product Landing Page (HaloDesk)</h3>
     <p>
-      Command-line budgeting tool built with object-oriented Python. Supports category tracking,
-      transfers, balance reporting, and a percentage-based spend chart.
+      A responsive product landing page built with HTML, CSS (Flexbox & Grid), and JavaScript.
+      Created as part of the freeCodeCamp Responsive Web Design certification.
     </p>
 
     <div class="meta">
       <div class="tags">
-        <span class="tag">Python</span>
-        <span class="tag">OOP</span>
-        <span class="tag">Data Structures</span>
+        <span class="tag">HTML</span>
+        <span class="tag">CSS</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">freeCodeCamp</span>
       </div>
 
       <div class="actions">
         <a
           class="btn primary"
-          href="https://github.com/LightSourceDigital/budget-app"
+          href="https://github.com/LightSourceDigital/product-landing-page"
           target="_blank"
           rel="noopener"
         >
           View Code
         </a>
-
-        <button
-          class="btn"
-          data-modal="images/budget-app-preview.png"
-          data-modaltitle="Python Budget App — Sample Output"
-        >
-          View Output
-        </button>
       </div>
     </div>
   </div>
