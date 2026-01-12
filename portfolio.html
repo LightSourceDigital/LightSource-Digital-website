@@ -212,6 +212,12 @@ button.chip:focus-visible {
   object-fit: cover;
   object-position: center;
 }
+/* Certificates: show the full certificate nicely inside the thumbnail area */
+.cert-thumb{
+  object-fit: contain;
+  background: rgba(0,0,0,.18);
+  padding: 10px;
+}
 
 
     .content{ padding: 14px 14px 16px; }
@@ -927,6 +933,161 @@ button.chip:focus-visible {
 </article>
         </div>
       </section>
+
+      <!-- SECTION: Coding Certificates -->
+<section aria-labelledby="certificates">
+  <div class="sectionhead">
+    <div>
+      <h2 id="certificates">Coding Certificates</h2>
+      <p>Industry-recognized certifications earned through structured coursework, practical exercises, and final assessments.</p>
+    </div>
+  </div>
+
+  <div class="grid">
+    <!-- freeCodeCamp: JavaScript -->
+    <article class="card span-6 item"
+      data-category="cert"
+      data-title="freeCodeCamp JavaScript Developer Certification"
+      data-keywords="certificate freecodecamp javascript developer certification">
+      <img class="thumb cert-thumb" src="images/javascript_cert.png" alt="freeCodeCamp JavaScript Developer Certification" loading="lazy" />
+      <div class="content">
+        <div class="kicker">Certificate</div>
+        <h3>JavaScript Developer (freeCodeCamp)</h3>
+        <p>Developer certification (approx. 175+ hours).</p>
+
+        <div class="meta">
+          <div class="tags">
+            <span class="tag">JavaScript</span>
+            <span class="tag">freeCodeCamp</span>
+            <span class="tag">Certificate</span>
+          </div>
+          <div class="actions">
+            <button class="btn primary"
+              data-modal="images/javascript_cert.png"
+              data-modaltitle="freeCodeCamp — JavaScript Developer Certification">
+              View
+            </button>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- freeCodeCamp: Python -->
+    <article class="card span-6 item"
+      data-category="cert"
+      data-title="freeCodeCamp Python Developer Certification"
+      data-keywords="certificate freecodecamp python developer certification">
+      <img class="thumb cert-thumb" src="images/python_cert.png" alt="freeCodeCamp Python Developer Certification" loading="lazy" />
+      <div class="content">
+        <div class="kicker">Certificate</div>
+        <h3>Python Developer (freeCodeCamp)</h3>
+        <p>Developer certification (approx. 100+ hours).</p>
+
+        <div class="meta">
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">freeCodeCamp</span>
+            <span class="tag">Certificate</span>
+          </div>
+          <div class="actions">
+            <button class="btn primary"
+              data-modal="images/python_cert.png"
+              data-modaltitle="freeCodeCamp — Python Developer Certification">
+              View
+            </button>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Python.Land -->
+    <article class="card span-6 item"
+      data-category="cert"
+      data-title="Python.Land Python Fundamentals I Certificate of Completion"
+      data-keywords="certificate python.land python fundamentals completion">
+      <!-- IMPORTANT: your filename has a space. See note below. -->
+      <img class="thumb cert-thumb" src="images/python_land_cert.png" alt="Python.Land Python Fundamentals I Certificate of Completion" loading="lazy" />
+      <div class="content">
+        <div class="kicker">Certificate</div>
+        <h3>Python Fundamentals I (Python.Land)</h3>
+        <p>Certificate of completion (approx. 60+ hours).</p>
+
+        <div class="meta">
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">Python.Land</span>
+            <span class="tag">Completion</span>
+          </div>
+          <div class="actions">
+            <button class="btn primary"
+              data-modal="images/python_land_cert%20.png"
+              data-modaltitle="Python.Land — Python Fundamentals I">
+              View
+            </button>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- freeCodeCamp: Relational Database -->
+    <article class="card span-6 item"
+      data-category="cert"
+      data-title="freeCodeCamp Relational Database Developer Certification"
+      data-keywords="certificate freecodecamp relational database sql developer certification">
+      <img class="thumb cert-thumb" src="images/relational_databse_cert.png" alt="freeCodeCamp Relational Database Developer Certification" loading="lazy" />
+      <div class="content">
+        <div class="kicker">Certificate</div>
+        <h3>Relational Database (freeCodeCamp)</h3>
+        <p>Developer certification (approx. 200+ hours).</p>
+
+        <div class="meta">
+          <div class="tags">
+            <span class="tag">SQL</span>
+            <span class="tag">Databases</span>
+            <span class="tag">freeCodeCamp</span>
+          </div>
+          <div class="actions">
+            <button class="btn primary"
+              data-modal="images/relational_databse_cert.png"
+              data-modaltitle="freeCodeCamp — Relational Database Certification">
+              View
+            </button>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- freeCodeCamp: Responsive Web Design -->
+    <article class="card span-6 item"
+      data-category="cert"
+      data-title="freeCodeCamp Responsive Web Design Developer Certification"
+      data-keywords="certificate freecodecamp responsive web design html css developer certification">
+      <img class="thumb cert-thumb" src="images/responsive_web_design_cert.png" alt="freeCodeCamp Responsive Web Design Developer Certification" loading="lazy" />
+      <div class="content">
+        <div class="kicker">Certificate</div>
+        <h3>Responsive Web Design (freeCodeCamp)</h3>
+        <p>Developer certification (approx. 250+ hours).</p>
+
+        <div class="meta">
+          <div class="tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">freeCodeCamp</span>
+          </div>
+          <div class="actions">
+            <button class="btn primary"
+              data-modal="images/responsive_web_design_cert.png"
+              data-modaltitle="freeCodeCamp — Responsive Web Design Certification">
+              View
+            </button>
+          </div>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
 
       <!-- CTA -->
       <section class="cta" aria-label="Portfolio call to action">
