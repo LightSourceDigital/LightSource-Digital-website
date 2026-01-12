@@ -46,9 +46,36 @@
     .wrap{ max-width: var(--max); margin:0 auto; }
 
     .brandline{
-      display:flex; align-items:center; gap:14px;
-      margin-bottom: 14px;
-    }
+  display: flex;
+  margin-bottom: 14px;
+  justify-content: center;
+}
+
+.logo-img{
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  opacity: 0.95;
+}
+.headline{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 10px;
+}
+.subtitle{
+  margin: 0;
+  color: var(--muted);
+  max-width: 70ch;
+}
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
     .mark{
       width:46px; height:46px; border-radius:14px;
       border:1px solid var(--border);
@@ -349,6 +376,20 @@ button.chip:focus-visible {
       overflow:hidden;clip:rect(0,0,0,0);
       white-space:nowrap;border:0;
     }
+    .home-link{
+  text-decoration: none;
+}
+
+.home-link:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 0 18px rgba(214,177,94,.25);
+}
+
+.home-link:focus-visible{
+  box-shadow: 0 0 0 3px rgba(214,177,94,.45);
+  border-radius: 14px;
+}
+
 
   </style>
 </head>
@@ -356,24 +397,30 @@ button.chip:focus-visible {
 <body>
   <header>
     <div class="wrap">
-      <div class="brandline" aria-label="LightSource Digital Portfolio Header">
-        <div class="mark">
-  <img
-    src="images/profile-pic.webp"
-    alt="LightSource Digital cross logo"
-    class="logo-img"
-    loading="eager"
-  />
+  <div class="brandline" aria-label="LightSource Digital Portfolio Header">
+  <div class="hero">
+    <div class="headline">
+      <a
+        href="https://lightsourcedigital.tech/"
+        class="mark home-link"
+        aria-label="Go to LightSource Digital homepage"
+      >
+        <img
+          src="images/profile-pic.webp"
+          alt="LightSource Digital cross logo"
+          class="logo-img"
+          loading="eager"
+        />
+      </a>
+
+      <h1>Portfolio</h1>
+    </div>
+
+    <p class="subtitle">
+      Design, technology, and creative work — built with intention.
+    </p>
+  </div>
 </div>
-
-
-        <div class="titleblock">
-          <h1>Portfolio</h1>
-          <p>
-            Design, technology, and creative work — built with intention.
-          </p>
-        </div>
-      </div>
 
       <div class="controls" role="region" aria-label="Portfolio controls">
         <div class="filters" role="group" aria-label="Category filters">
@@ -878,7 +925,7 @@ button.chip:focus-visible {
       <!-- CTA -->
       <section class="cta" aria-label="Portfolio call to action">
         <div>
-          <p><strong>Want something similar?</strong> I’d love to help.</p>
+          <p><strong>Want something similar?</strong> I’d love to help!</p>
           <p>Website design, security audits, creative media, and tech support — rooted in excellence and integrity.</p>
         </div>
         <div class="actions">
