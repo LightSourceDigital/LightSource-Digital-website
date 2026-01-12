@@ -106,6 +106,19 @@
       box-shadow: 0 0 18px rgba(214,177,94,.14);
     }
 
+    /* Remove focus ring for filter chips only */
+.chip:focus-visible {
+  box-shadow: none;
+}
+
+/* Kill ALL focus ring styling on the filter chips (mouse + keyboard) */
+button.chip:focus,
+button.chip:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+
     .search{
       display:flex; gap:10px; align-items:center;
     }
@@ -475,7 +488,11 @@
 
         <div class="grid">
           <!-- LOGO CARD TEMPLATE -->
-          <article class="card span-4 item" data-category="logo">
+          <article class="card span-4 item"
+  data-category="logo"
+  data-title="Shawn's Automotive Repair"
+  data-keywords="logo branding automotive repair rugged custom logo camo">
+
   <img
     class="thumb"
     src="images/camo1-copy.webp"
@@ -510,7 +527,11 @@
 </article>
 
 
-          <article class="card span-4 item" data-category="logo">
+          <article class="card span-4 item"
+  data-category="logo"
+  data-title="Holderbaum Tree Service"
+  data-keywords="logo tree service landscaping removal trimming topping brand identity typography">
+
   <img
     class="thumb"
     src="images/HTS-logo.webp"
@@ -545,7 +566,11 @@
 </article>
 
 
-          <article class="card span-4 item" data-category="logo">
+          <article class="card span-4 item"
+  data-category="logo"
+  data-title="LightSource Digital"
+  data-keywords="logo personal brand lightsource digital branding faith-driven">
+
   <img
     class="thumb"
     src="images/LSD_pic.png"
@@ -858,7 +883,7 @@
         </div>
         <div class="actions">
           <a class="btn primary" href="contact.html">Request a Quote</a>
-          <a class="btn" href="services.html">View Services</a>
+          <a class="btn primary" href="services.html">View Services</a>
         </div>
       </section>
 
