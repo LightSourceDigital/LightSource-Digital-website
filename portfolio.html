@@ -14,7 +14,6 @@
       --panel:#0b2542;       /* lighter navy */
       --panel2:#0e2e52;      /* hover navy */
       --text:#e9eef6;        /* near-white */
-      --muted:#b9c6da;       /* muted text */
       --gold:#d6b15e;        /* warm gold */
       --gold2:#f0d28a;       /* lighter gold for glow */
       --border:rgba(255,255,255,.18);
@@ -22,14 +21,15 @@
       --radius:22px;
       --radius2:16px;
       --max:1100px;
-      --focus: 0 0 0 3px rgba(214,177,94,.45);
-      --surface: rgba(255,255,255,.04);
---surface2: rgba(255,255,255,.06);
---ink-soft: rgba(233,238,246,.82);
---thumb-bg: rgba(0,0,0,.25);
---glow1: radial-gradient(1200px 600px at 50% -100px, rgba(214,177,94,.18), transparent 60%);
---glow2: radial-gradient(900px 450px at 20% 0px, rgba(255,255,255,.08), transparent 60%);
-    }
+      --focus: 0 0 0 3px rgba(214,177,94,.55);
+      --thumb-bg: rgba(0,0,0,.25);
+      --glow1: radial-gradient(1200px 600px at 50% -100px, rgba(214,177,94,.18), transparent 60%);
+      --glow2: radial-gradient(900px 450px at 20% 0px, rgba(255,255,255,.08), transparent 60%);
+      --muted:#d2dced;         /* brighter */
+      --ink-soft:#eef4ff;      /* brighter */
+      --surface: rgba(255,255,255,.06);
+      --surface2: rgba(255,255,255,.09);
+}
 
     /* High Contrast Mode (applies to entire page) */
 html.hc {
@@ -54,6 +54,17 @@ html.hc {
 html.hc header{
   background: var(--bg) !important;
   background-image: none !important;
+}
+html.hc .chip,
+html.hc .btn,
+html.hc .search input{
+  border-color: rgba(255,255,255,.40);
+}
+
+html.hc a:focus-visible,
+html.hc button:focus-visible,
+html.hc input:focus-visible{
+  box-shadow: var(--focus);
 }
 
 
@@ -212,7 +223,9 @@ header{
       background: rgba(0,0,0,.20);
       color: var(--text);
     }
-    .search input::placeholder{ color: rgba(233,238,246,.55); }
+    .search input::placeholder{ 
+      color: rgba(233,238,246,.75);
+    }
 
     main{ padding: 10px 18px 50px; }
     section{ margin-top: 22px; }
@@ -453,7 +466,7 @@ header{
 
 
 .home-link:focus-visible{
-  box-shadow: 0 0 0 3px rgba(214,177,94,.45);
+  box-shadow: var(--focus);
   border-radius: 14px;
 }
 
@@ -493,27 +506,36 @@ header{
   transform: translateY(0);
 }
 
-
-
-/* Make buttons/inputs a touch clearer in high contrast */
-html[data-contrast="high"] .chip,
-html[data-contrast="high"] .btn,
-html[data-contrast="high"] .search input{
-  border-color: rgba(255,255,255,.40);
+.skip-link{
+  position:absolute;
+  left:-999px;
+  top:10px;
+  padding:10px 12px;
+  border-radius:10px;
+  background:#000;
+  color:#fff;
+  z-index:10000;
 }
 
-/* Ensure focus is very obvious in high contrast */
-html[data-contrast="high"] a:focus-visible,
-html[data-contrast="high"] button:focus-visible,
-html[data-contrast="high"] input:focus-visible{
-  box-shadow: var(--focus);
+.skip-link:focus{
+  left:10px;
 }
+a:not(.btn):not(.home-link){
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.back-to-top { visibility: hidden; }
+.back-to-top.show { visibility: visible; }
+
 
   </style>
 </head>
 
 <body>
-  <header>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header id="pageHeader">
     <div class="wrap">
   <div class="brandline" aria-label="LightSource Digital Portfolio Header">
   <div class="hero">
@@ -569,7 +591,7 @@ html[data-contrast="high"] input:focus-visible{
     </div>
   </header>
 
-  <main>
+  <main id="main" tabindex="-1">
     <div class="wrap">
 
       <!-- SECTION: Featured Websites -->
@@ -608,7 +630,7 @@ html[data-contrast="high"] input:focus-visible{
   </a>
   <button class="btn primary"
           data-modal="images/storkstays.webp"
-          data-modaltitle="LightSource Digital — Business Card">
+          data-modaltitle="Stork Stays website screenshot">
           View
         </button>
 </div>
@@ -637,12 +659,12 @@ html[data-contrast="high"] input:focus-visible{
             <span class="tag">Performance</span>
           </div>
           <div class="actions">
-  <a class="btn primary" href="https://storkstays.com/" target="_blank" rel="noopener">
+  <a class="btn primary" href="https://www.kelleyelectricalse.com/" target="_blank" rel="noopener">
     Visit Site
   </a>
   <button class="btn primary"
           data-modal="images/trust-Lord.webp"
-          data-modaltitle="LightSource Digital — Business Card">
+          data-modaltitle="Kelley Electrical Services website screenshot">
           View
         </button>
 </div>
@@ -1138,7 +1160,7 @@ html[data-contrast="high"] input:focus-visible{
           </div>
           <div class="actions">
             <button class="btn primary"
-              data-modal="images/python_land_cert%20.png"
+              data-modal="images/python_land_cert.png"
               data-modaltitle="Python.Land — Python Fundamentals I">
               View
             </button>
@@ -1223,11 +1245,11 @@ html[data-contrast="high"] input:focus-visible{
   </main>
 
   <!-- Modal -->
-  <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Image preview">
+<div class="modal" id="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modalbox">
       <div class="modalbar">
         <div class="title" id="modalTitle">Preview</div>
-        <button type="button" id="closeModal">Close</button>
+        <button type="button" id="closeModal" aria-label="Close image preview">Close</button>
       </div>
       <img class="modalmedia" id="modalImg" alt="" />
     </div>
@@ -1289,22 +1311,32 @@ html[data-contrast="high"] input:focus-visible{
     let lastFocus = null;
 
     function openModal(src, title){
-      lastFocus = document.activeElement;
-      modal.setAttribute("aria-hidden","false");
-      modalImg.src = src;
-      modalImg.alt = title || "Preview image";
-      modalTitle.textContent = title || "Preview";
-      closeModalBtn.focus();
-      document.body.style.overflow = "hidden";
-    }
+  lastFocus = document.activeElement;
+  modal.setAttribute("aria-hidden","false");
+
+  document.getElementById("pageHeader").setAttribute("aria-hidden","true");
+  document.getElementById("main").setAttribute("aria-hidden","true");
+
+  modalImg.src = src;
+  modalImg.alt = title || "Preview image";
+  modalTitle.textContent = title || "Preview";
+  closeModalBtn.focus();
+  document.body.style.overflow = "hidden";
+}
+
 
     function closeModal(){
-      modal.setAttribute("aria-hidden","true");
-      modalImg.src = "";
-      modalImg.alt = "";
-      document.body.style.overflow = "";
-      if(lastFocus) lastFocus.focus();
-    }
+  modal.setAttribute("aria-hidden","true");
+  modalImg.src = "";
+  modalImg.alt = "";
+  document.body.style.overflow = "";
+
+  document.getElementById("pageHeader").removeAttribute("aria-hidden");
+  document.getElementById("main").removeAttribute("aria-hidden");
+
+  if(lastFocus) lastFocus.focus();
+}
+
 
     document.addEventListener("click", (e) => {
       const btn = e.target.closest("[data-modal]");
@@ -1369,6 +1401,28 @@ contrastBtn.addEventListener("click", () => {
   const isOn = !document.documentElement.classList.contains("hc");
   setContrast(isOn);
 });
+
+function trapFocus(e){
+  if(modal.getAttribute("aria-hidden") === "true") return;
+
+  const focusable = modal.querySelectorAll(
+    'button,[href],input,select,textarea,[tabindex]:not([tabindex="-1"])'
+  );
+  if (!focusable.length) return;   // ✅ OK here because we're inside a function
+
+  const first = focusable[0];
+  const last = focusable[focusable.length - 1];
+
+  if(e.key === "Tab"){
+    if(e.shiftKey && document.activeElement === first){
+      e.preventDefault();
+      last.focus();
+    } else if(!e.shiftKey && document.activeElement === last){
+      e.preventDefault();
+      first.focus();
+    }
+  }
+}
 
   </script>
 </body>
