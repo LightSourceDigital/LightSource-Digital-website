@@ -3,9 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="LightSource Digital portfolio: websites, logos, flyers, business cards, and technical projects." />
+  <meta name="description" content="Portfolio of LightSource Digital featuring websites, branding, creative media, technical projects, and verified coding certifications." />
   <link rel="stylesheet" href="styles.css">
-  <title>Portfolio | LightSource Digital</title>
+  <title>Portfolio | LightSource Digital — Web Design, Development & Creative Work</title>
+
 
   <style>
     :root{
@@ -401,6 +402,43 @@ button.chip:focus-visible {
   box-shadow: 0 0 0 3px rgba(214,177,94,.45);
   border-radius: 14px;
 }
+
+/* Back to Top Button */
+.back-to-top {
+  position: fixed;
+  bottom: 22px;
+  right: 22px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(214,177,94,.55);
+  background: rgba(214,177,94,.12);
+  color: var(--gold2);
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0,0,0,.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: opacity .2s ease, transform .2s ease, background .15s ease;
+  z-index: 3000;
+}
+
+.back-to-top:hover {
+  background: rgba(214,177,94,.18);
+}
+
+.back-to-top.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
 
 
   </style>
@@ -1115,6 +1153,15 @@ button.chip:focus-visible {
     </div>
   </div>
 
+  <button
+  id="backToTop"
+  class="back-to-top"
+  aria-label="Back to top"
+  title="Back to top"
+>
+  ↑
+</button>
+
   <script>
     // Filtering + Search + Modal (simple, fast, no libraries)
     const chips = Array.from(document.querySelectorAll(".chip"));
@@ -1198,6 +1245,24 @@ button.chip:focus-visible {
 
     // initial
     applyFilters();
+
+// Back to Top
+const backToTopBtn = document.getElementById("backToTop");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 50) {
+    backToTopBtn.classList.add("show");
+  } else {
+    backToTopBtn.classList.remove("show");
+  }
+});
+
+backToTopBtn.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+});
   </script>
 </body>
 </html>
