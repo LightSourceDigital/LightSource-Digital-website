@@ -23,19 +23,67 @@
       --radius2:16px;
       --max:1100px;
       --focus: 0 0 0 3px rgba(214,177,94,.45);
+      --surface: rgba(255,255,255,.04);
+--surface2: rgba(255,255,255,.06);
+--ink-soft: rgba(233,238,246,.82);
+--thumb-bg: rgba(0,0,0,.25);
+--glow1: radial-gradient(1200px 600px at 50% -100px, rgba(214,177,94,.18), transparent 60%);
+--glow2: radial-gradient(900px 450px at 20% 0px, rgba(255,255,255,.08), transparent 60%);
     }
 
+    /* High Contrast Mode (applies to entire page) */
+html.hc {
+  --bg: #000000;
+  --panel: #0b0b0b;
+  --panel2: #141414;
+  --text: #ffffff;
+  --muted: #f2f2f2;
+  --gold: #ffd54a;
+  --gold2: #ffe08a;
+  --border: rgba(255,255,255,.55);
+  --focus: 0 0 0 3px rgba(255,213,74,.75);
+  --surface: #0b0b0b;
+--surface2: #141414;
+--ink-soft: #ffffff;
+--thumb-bg: #111111;
+--glow1: none;
+--glow2: none;
+
+}
+
+html.hc header{
+  background: var(--bg) !important;
+  background-image: none !important;
+}
+
+
+/* Base: set background on BOTH html and body */
+html, body {
+  min-height: 100%;
+  background: var(--glow1), var(--glow2), var(--bg);
+  background-color: var(--bg);
+}
+
+/* High contrast: force background to solid + remove any images/gradients */
+html.hc, html.hc body {
+  background: var(--bg) !important;
+  background-color: var(--bg) !important;
+  background-image: none !important;
+}
+
     *{ box-sizing:border-box; }
-    html,body{ height:100%; }
+    html,body{ min-height:100%; }
     body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
-      background: radial-gradient(1200px 600px at 50% -100px, rgba(214,177,94,.18), transparent 60%),
-                  radial-gradient(900px 450px at 20% 0px, rgba(255,255,255,.08), transparent 60%),
-                  var(--bg);
-      color:var(--text);
-      line-height:1.5;
-    }
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
+
+  /* ONLY use the variables, so HC can turn them off */
+  background: var(--glow1), var(--glow2), var(--bg);
+  background-color: var(--bg);
+
+  color:var(--text);
+  line-height:1.5;
+}
 
     a{ color:inherit; }
     a:focus-visible, button:focus-visible, input:focus-visible{ outline:none; box-shadow: var(--focus); border-radius: 10px; }
@@ -44,6 +92,12 @@
     header{
       padding: 38px 18px 18px;
     }
+    /* Give header a real surface so it follows HC */
+header{
+  background: var(--bg);
+  background-image: var(--glow1), var(--glow2);
+}
+
     .wrap{ max-width: var(--max); margin:0 auto; }
 
     .brandline{
@@ -103,7 +157,7 @@
     .controls{
       margin-top: 18px;
       padding: 14px;
-      background: rgba(255,255,255,.04);
+      background: var(--surface);
       border:1px solid var(--border);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
@@ -139,11 +193,11 @@
   box-shadow: none;
 }
 
-/* Kill ALL focus ring styling on the filter chips (mouse + keyboard) */
-button.chip:focus,
-button.chip:focus-visible {
-  outline: none !important;
-  box-shadow: none !important;
+/* Chip focus: keep it subtle but visible for keyboard users */
+.chip:focus-visible{
+  outline: 2px solid rgba(214,177,94,.75);
+  outline-offset: 3px;
+  box-shadow: none;
 }
 
 
@@ -190,7 +244,7 @@ button.chip:focus-visible {
     }
     .card{
       grid-column: span 12;
-      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      background: linear-gradient(180deg, var(--surface2), var(--surface));
       border:1px solid var(--border);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
@@ -207,7 +261,7 @@ button.chip:focus-visible {
     .thumb{
   width:100%;
   height: 220px; /* default thumbnail height for most cards */
-  background: rgba(0,0,0,.25);
+  background: var(--thumb-bg);
   border-bottom:1px solid rgba(255,255,255,.10);
   display:block;
   object-fit: cover;
@@ -235,7 +289,7 @@ button.chip:focus-visible {
     }
     .card p{
       margin:0;
-      color: rgba(233,238,246,.82);
+      color: var(--ink-soft);
       font-size: 14px;
     }
 
@@ -312,7 +366,7 @@ button.chip:focus-visible {
     .cta{
       margin-top: 26px;
       padding: 18px;
-      background: rgba(255,255,255,.04);
+      background: var(--surface);
       border:1px solid var(--border);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
@@ -441,6 +495,20 @@ button.chip:focus-visible {
 
 
 
+/* Make buttons/inputs a touch clearer in high contrast */
+html[data-contrast="high"] .chip,
+html[data-contrast="high"] .btn,
+html[data-contrast="high"] .search input{
+  border-color: rgba(255,255,255,.40);
+}
+
+/* Ensure focus is very obvious in high contrast */
+html[data-contrast="high"] a:focus-visible,
+html[data-contrast="high"] button:focus-visible,
+html[data-contrast="high"] input:focus-visible{
+  box-shadow: var(--focus);
+}
+
   </style>
 </head>
 
@@ -486,6 +554,17 @@ button.chip:focus-visible {
           <label class="sr-only" for="searchBox">Search portfolio</label>
           <input id="searchBox" type="search" placeholder="Search (e.g., 'church', 'logo', 'security')…" />
         </div>
+        <button
+  id="contrastToggle"
+  class="chip"
+  type="button"
+  aria-pressed="false"
+  aria-label="Toggle high contrast"
+  title="Toggle high contrast"
+>
+  🌓
+</button>
+
       </div>
     </div>
   </header>
@@ -1164,7 +1243,7 @@ button.chip:focus-visible {
 
   <script>
     // Filtering + Search + Modal (simple, fast, no libraries)
-    const chips = Array.from(document.querySelectorAll(".chip"));
+    const chips = Array.from(document.querySelectorAll(".chip[data-filter]"));
     const items = Array.from(document.querySelectorAll(".item"));
     const searchBox = document.getElementById("searchBox");
 
@@ -1263,6 +1342,33 @@ backToTopBtn.addEventListener("click", () => {
     behavior: "smooth"
   });
 });
+
+// High Contrast Toggle
+const contrastBtn = document.getElementById("contrastToggle");
+
+function setContrast(isOn){
+  document.documentElement.classList.toggle("hc", isOn);
+  contrastBtn.setAttribute("aria-pressed", String(isOn));
+
+  // Optional: swap emoji to show state
+  contrastBtn.textContent = isOn ? "☀️" : "🌓";
+
+  // Persist preference (optional but nice)
+  localStorage.setItem("hc", isOn ? "1" : "0");
+
+  // IMPORTANT: restore card visibility based on current search/filter state
+  applyFilters();
+}
+
+// Load saved preference on page load
+const savedHC = localStorage.getItem("hc") === "1";
+setContrast(savedHC);
+
+contrastBtn.addEventListener("click", () => {
+  const isOn = !document.documentElement.classList.contains("hc");
+  setContrast(isOn);
+});
+
   </script>
 </body>
 </html>
