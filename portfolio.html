@@ -324,7 +324,7 @@ header{
 
 /* FCC projects: wider, shorter preview */
 .card[data-category="fcc"] .thumb{
-  height: 200px;          /* try 160–200 if needed */
+  height: 200px;          
   object-fit: cover;
   object-position: center;
 }
@@ -685,7 +685,7 @@ a:not(.btn):not(.home-link){
         </div>
 
         <div class="grid">
-          <!-- LOGO CARD TEMPLATE -->
+          <!-- LOGO CARDS -->
           <article class="card span-4 item"
   data-category="logo"
   data-title="Shawn's Automotive Repair"
@@ -891,7 +891,7 @@ a:not(.btn):not(.home-link){
         </div>
 
         <div class="grid">
-          <!-- BUSINESS CARD TEMPLATE -->
+          <!-- BUSINESS CARD -->
           <!-- Business Card 1 -->
 <article class="card span-6 item"
   data-category="card"
@@ -966,7 +966,7 @@ a:not(.btn):not(.home-link){
         </div>
 
         <div class="grid">
-          <!-- TECH PROJECT TEMPLATE (no images required, but you can add them) -->
+          <!-- TECH PROJECT 1 -->
           <article class="card span-6 item"
   data-category="fcc"
   data-title="Product Landing Page (HaloDesk)"
@@ -1019,7 +1019,7 @@ a:not(.btn):not(.home-link){
   </div>
 </article>
 
-<!-- TECH PROJECT TEMPLATE 2 (no images required, but you can add them) -->
+<!-- TECH PROJECT 2 -->
           <article class="card span-6 item"
   data-category="fcc"
   data-title="Weather Studio"
@@ -1265,7 +1265,7 @@ a:not(.btn):not(.home-link){
 </button>
 
   <script>
-    // Filtering + Search + Modal (simple, fast, no libraries)
+    // Filtering + Search + Modal 
     const chips = Array.from(document.querySelectorAll(".chip[data-filter]"));
     const items = Array.from(document.querySelectorAll(".item"));
     const searchBox = document.getElementById("searchBox");
@@ -1383,13 +1383,13 @@ function setContrast(isOn){
   document.documentElement.classList.toggle("hc", isOn);
   contrastBtn.setAttribute("aria-pressed", String(isOn));
 
-  // Optional: swap emoji to show state
+  // Swap emoji to show state
   contrastBtn.textContent = isOn ? "☀️" : "🌓";
 
-  // Persist preference (optional but nice)
+  // Persist preference 
   localStorage.setItem("hc", isOn ? "1" : "0");
 
-  // IMPORTANT: restore card visibility based on current search/filter state
+  // Restore card visibility based on current search/filter state
   applyFilters();
 }
 
@@ -1408,7 +1408,7 @@ function trapFocus(e){
   const focusable = modal.querySelectorAll(
     'button,[href],input,select,textarea,[tabindex]:not([tabindex="-1"])'
   );
-  if (!focusable.length) return;   // ✅ OK here because we're inside a function
+  if (!focusable.length) return;   
 
   const first = focusable[0];
   const last = focusable[focusable.length - 1];

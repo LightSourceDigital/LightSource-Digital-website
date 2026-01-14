@@ -29,7 +29,7 @@ a:hover {
   }
 }
 
-/* ---- Page background (do this once) ---- */
+/* ---- Page background ---- */
 :root { --brand-bg: #0b1e34; }
 html, body { 
   background: var(--brand-bg);
@@ -38,7 +38,7 @@ html, body {
 
 /* Let content sit on top of the page color */
 main, section, footer { background: transparent; }
-/* (leave header/nav out since you style them below) */
+/* (leave header/nav out since style below) */
 
 
 /* Header */
@@ -60,7 +60,7 @@ header h1 {
 
 .hero-header {
   position: relative;
-  height: 315px; /* or match to your desired logo height */
+  height: 315px; /* match logo height */
   padding: 0;
   display: flex;
   justify-content: center;
@@ -258,7 +258,7 @@ nav a {
 }
 
 .services-intro {
-  margin-bottom: 5rem; /* adjust to taste (2.5rem if you want more space) */
+  margin-bottom: 5rem; /* adjust if you want more space */
 }
 
 .service-block {
@@ -442,7 +442,7 @@ nav a {
   cursor: pointer;
   font-family: 'Segoe UI', sans-serif;
   font-size: 1rem;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* 👈 this line is key */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; 
 }
 
 .contact-form button:hover {
@@ -766,8 +766,8 @@ a:focus, button:focus {
 }
 
 section:focus {
-  outline: 2px solid #FFD700; /* gold outline or your brand color */
-  scroll-margin-top: 2rem; /* optional if fixed header */
+  outline: 2px solid #FFD700; /* gold outline */
+  scroll-margin-top: 2rem; 
 }
 
 .sr-only {
@@ -841,7 +841,7 @@ body.high-contrast .input-group i {
 /* Make summary feel clickable */
 .faq summary {
   cursor: pointer;
-  list-style: none; /* Removes default disclosure triangle if you style your own */
+  list-style: none; /* Removes default disclosure */
 }
 
 /* Visible focus ring for keyboard users */
@@ -860,7 +860,7 @@ body.high-contrast .input-group i {
 #services-faq .faq-item { scroll-margin-top: 80px; }
 
 :target {
-  scroll-margin-top: 80px; /* adjust to your sticky header height */
+  scroll-margin-top: 80px; /* adjust sticky header height */
 }
 
 /* Global button style (applies on all screen sizes) */
@@ -971,7 +971,7 @@ footer {
   border-radius: 14px;
   display: grid;
   place-items: center;
-  overflow: hidden; /* <-- KEY: prevents big logo overflow */
+  overflow: hidden; /* <-- prevents big logo overflow */
   border: 1px solid rgba(255,255,255,.18);
   background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
   box-shadow:
@@ -1072,7 +1072,7 @@ footer {
   .slide img {
     width: 100% !important;     /* override the desktop width:auto */
     height: auto !important;
-    max-height: 70vh;           /* stays on-screen; tweak if you like */
+    max-height: 70vh;           /* stays on-screen */
     object-fit: contain;
     display: block;
   }
